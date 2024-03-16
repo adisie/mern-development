@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* main container max width */
+
+.main-container-max-width {
+    @apply max-w-[820px] px-3 mx-auto
+}
+
+/* new-note-textarea */
+#new-note-textarea::-webkit-scrollbar {
+    display: none;
+}
