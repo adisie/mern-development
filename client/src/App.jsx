@@ -1,7 +1,12 @@
-import React from "react";
+// pages
+import Header from "./pages/Header";
+import Accordion from "./pages/Accordion";
 
 const App = () => {
-  return <div>App</div>;
+  return <div className="w-screen h-screen">
+    <Header />
+    {/* <Accordion /> */}
+  </div>;
 };
 
 export default App;
