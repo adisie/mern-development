@@ -24,7 +24,7 @@ const Header = () => {
                 setMenu(!menu)
             }}>
               Products
-              <div className={`absolute left-1/2 -translate-x-1/2 top-[100%] overflow-hidden grid transition-all ease-in-out duration-350 ${menu ? 'grid-cols-[1fr] opacity-100' : 'grid-cols-[0fr] opacity-0'}`}>
+              <div className={`absolute left-1/2 -translate-x-1/2 top-[100%] overflow-hidden grid transition-all ease-in-out duration-150 ${menu ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                 <ul className="p-3 rounded-sm bg-gray-100 shadow-md">
                   <li className='w-[150px] border-b border-gray-300 pl-1'>T-Shirts</li>
                   <li className='w-[150px] border-b border-gray-300 pl-1'>Sweeters</li>
