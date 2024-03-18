@@ -44,6 +44,7 @@ const HeaderBottom = () => {
               }`}
             >
               <NavLink
+                to={"/"}
                 className={"h-full py-2"}
                 onClick={() => {
                   setNavTag("Home");
@@ -181,7 +182,14 @@ const HeaderBottom = () => {
               >
                 <ul className="[&>li]:py-1 py-[10%] px-[25%] w-[300px] overflow-hidden">
                   <li>
-                    <NavLink>Portfolio 1</NavLink>
+                    <NavLink
+                      to={"/portfolio"}
+                      onClick={() => {
+                        setSubMenu(false);
+                      }}
+                    >
+                      Portfolio 1
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink>Portfolio 2</NavLink>
@@ -199,6 +207,7 @@ const HeaderBottom = () => {
               }`}
             >
               <NavLink
+                to={"/contact"}
                 className={"h-full py-2"}
                 onClick={() => {
                   setNavTag("Contact Us");
