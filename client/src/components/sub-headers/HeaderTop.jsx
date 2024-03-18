@@ -12,7 +12,7 @@ const HeaderTop = () => {
   const [isPhoneDetailOpen, setIsPhoneDetailOpen] = useState(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
   return (
-    <div className="border-b border-gray-300 p-[.75%] flex items-center justify-between relative">
+    <div className="shadow-bottomShadow p-[.75%] flex items-center justify-between relative">
       {/* logo */}
 
       <div className="flex-grow">
@@ -40,7 +40,7 @@ const HeaderTop = () => {
             )}
           </NavLink>
           <div
-            className={`absolute left-1/2 -translate-x-1/2 top-[120%] bg-white shadow-lg overflow-hidden transition-all ease-in-out duration-300 ${
+            className={`absolute z-[200] left-1/2 -translate-x-1/2 top-[120%] bg-white shadow-lg overflow-hidden transition-all ease-in-out duration-300 ${
               isPhoneDetailOpen ? "h-[200px]" : "h-[0px]"
             }`}
           >
