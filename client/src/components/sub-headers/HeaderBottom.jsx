@@ -229,8 +229,10 @@ const HeaderBottom = () => {
             <ul className="[&>li]:my-2 [&>li]:relative [&>li]:w-[50%] [&>li]:border-b [&>li]:border-gray-200 [&>li]:py-1">
               <li>
                 <NavLink
+                  to={"/"}
                   onClick={() => {
                     setSmallScreenNav("Home");
+                    setToggleSideNav(false);
                   }}
                   className={`${smallScreenNav === "Home" ? "font-bold" : ""}`}
                 >
@@ -350,7 +352,14 @@ const HeaderBottom = () => {
                 >
                   <ul className="[&>li]:my-1">
                     <li>
-                      <NavLink>#list</NavLink>
+                      <NavLink
+                        to={"/portfolio"}
+                        onClick={() => {
+                          setToggleSideNav(false);
+                        }}
+                      >
+                        #list
+                      </NavLink>
                     </li>
                     <li>
                       <NavLink>#list</NavLink>
@@ -405,11 +414,13 @@ const HeaderBottom = () => {
 
               <li>
                 <NavLink
+                  to={"/contact"}
                   className={`${
                     smallScreenNav === "Contact Us" ? "font-bold" : ""
                   }`}
                   onClick={() => {
                     setSmallScreenNav("Contact Us");
+                    setToggleSideNav(false);
                   }}
                 >
                   Contact Us
