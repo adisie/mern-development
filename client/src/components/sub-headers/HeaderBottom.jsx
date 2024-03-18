@@ -1,442 +1,129 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import {useState} from 'react'
 // icons
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { IoIosHelpCircleOutline } from "react-icons/io";
+import { MdOutlineHelpOutline } from "react-icons/md";
+
+// sub-headers
+// NavMenuItem
+import NavMenuItem from "./NavMenuItem";
 
 const HeaderBottom = () => {
-  const [navTag, setNavTag] = useState("Home");
-  const [subMenu, setSubMenu] = useState(false);
-  const [toggleSideNav, setToggleSideNav] = useState(false);
+  // states
+  const [isSideNavOpen,setIsSideNavOpen] = useState(false)
+  // nav list
+  const navList = [
+    {
+      navText: 'Home',
+      path: '#'
+    },
+    {
+      navText: 'Our Services',
+      subMenus: [
+        {
+          subMenuText: 'Service i',
+          path: '#',
+        },
+        {
+          subMenuText: 'Service ii',
+          path: '#',
+        },
+        {
+          subMenuText: 'Service iv',
+          path: '#'
+        },
+      ],
+    },
+    {
+      navText: 'Blogging',
+      path: '#',
+    },
+    {
+      navText: 'Tutorial',
+      subMenus: [
+        {
+          subMenuText: 'Tutorial i',
+          path: '#',
+        },
+        {
+          subMenuText: 'Tutorial ii',
+          path: '#',
+        },
+        {
+          subMenuText: 'Tutorial iv',
+          path: '#',
+        },
+        {
+          subMenuText: 'Tutorial v',
+          path: '#'
+        },
+      ],
+    },
+    {
+      navText: 'Our Team',
+      subMenus: [
+        {
+          subMenuText: 'Our Team i',
+          path: '#',
+        },
+        {
+          subMenuText: 'Our Team ii',
+          path: '#',
+        },
+        {
+          subMenuText: 'Our Team iv',
+          path: '#'
+        }
+      ]
+    },
+    {
+      navText: 'Contact Us',
+      path: '#',
+    },
+  ]
 
-  // small screen
-  const [smallScreenNav, setSmallScreenNav] = useState("Home");
-
+  // side nav toggler
+  const sideNavToggler = () => {
+    const mainSideNav = document.getElementById('main-side-nav') 
+    if(mainSideNav?.classList.contains('w-[0vw]')){
+      mainSideNav?.classList.remove('w-[0vw]')
+      mainSideNav?.classList.add('w-[100vw]')
+      setIsSideNavOpen(true)
+    }else{
+      mainSideNav?.classList.add('w-[0vw]')
+      mainSideNav?.classList.remove('w-[100vw]')
+      setIsSideNavOpen(false)
+    }
+  }
   return (
-    <div className="w-full px-[.75%] flex items-center justify-between relative z-[150]">
-      <div className="h-[100%]">
+    <div className="w-full flex items-center justify-center">
+      <div className="flex-grow px-[.75%] flex items-center justify-between relative">
         {/* menu icon */}
-        <div className=" h-full">
-          <button
-            className="sm:hidden my-2"
-            onClick={() => {
-              setToggleSideNav(!toggleSideNav);
-            }}
-          >
-            {toggleSideNav ? (
-              <AiOutlineClose className="text-2xl text-gray-700" />
+        <div>
+          <button className="sm:hidden" onClick={()=>{
+            sideNavToggler()
+          }}>
+            {isSideNavOpen ? (
+              <AiOutlineClose className="my-1 text-3xl pt-1" />
             ) : (
-              <AiOutlineMenu className="text-2xl text-gray-700" />
+              <AiOutlineMenu className="my-1 text-3xl pt-1" />
             )}
           </button>
         </div>
-      </div>
-
-      <div>
-        {/* menu list */}
-        <div>
-          <ul className="hidden sm:flex items-center justify-center gap-x-5">
-            <li
-              className={`main-link-hover-effect flex items-center justify-center ${
-                navTag === "Home" ? "after:w-full" : ""
-              }`}
-            >
-              <NavLink
-                to={"/"}
-                className={"h-full py-2"}
-                onClick={() => {
-                  setNavTag("Home");
-                  setSubMenu(false);
-                }}
-              >
-                Home
-              </NavLink>
-            </li>
-
-            <li
-              className={`main-link-hover-effect flex items-center justify-center ${
-                navTag === "Our Services" ? "after:w-full" : ""
-              }`}
-            >
-              <NavLink
-                className={
-                  "h-full py-2 flex items-center justify-between gap-x-2"
-                }
-                onClick={() => {
-                  setSubMenu(!subMenu);
-                  setNavTag("Our Services");
-                }}
-              >
-                <span>Our Services</span>
-                {navTag === "Our Services" && subMenu ? (
-                  <FaChevronUp />
-                ) : (
-                  <FaChevronDown />
-                )}
-              </NavLink>
-              {/* portfolio sub menu list */}
-              <div
-                className={`absolute top-[100%] left-1/2 -translate-x-1/2 bg-white shadow-lg w-max overflow-hidden transition-all ease-in-out duration-300 ${
-                  navTag === "Our Services" && subMenu ? "h-[200px]" : "h-[0px]"
-                }`}
-              >
-                <ul className="[&>li]:py-1 py-[10%] px-[25%] w-[300px] overflow-hidden">
-                  <li>
-                    <NavLink>Portfolio 1</NavLink>
-                  </li>
-                  <li>
-                    <NavLink>Portfolio 2</NavLink>
-                  </li>
-                  <li>
-                    <NavLink>Portfolio 3</NavLink>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li
-              className={`main-link-hover-effect flex items-center justify-center ${
-                navTag === "Blogging" ? "after:w-full" : ""
-              }`}
-            >
-              <NavLink
-                className={"h-full py-2"}
-                onClick={() => {
-                  setNavTag("Blogging");
-                  setSubMenu(false);
-                }}
-              >
-                Blogging
-              </NavLink>
-            </li>
-
-            <li
-              className={`main-link-hover-effect flex items-center justify-center ${
-                navTag === "Tutorial" ? "after:w-full" : ""
-              }`}
-            >
-              <NavLink
-                className={
-                  "h-full py-2 flex items-center justify-between gap-x-2"
-                }
-                onClick={() => {
-                  setSubMenu(!subMenu);
-                  setNavTag("Tutorial");
-                }}
-              >
-                <span>Tutorial</span>
-                {navTag === "Tutorial" && subMenu ? (
-                  <FaChevronUp />
-                ) : (
-                  <FaChevronDown />
-                )}
-              </NavLink>
-              {/* portfolio sub menu list */}
-              <div
-                className={`absolute top-[100%] left-1/2 -translate-x-1/2 bg-white shadow-lg w-max overflow-hidden transition-all ease-in-out duration-300 ${
-                  navTag === "Tutorial" && subMenu ? "h-[200px]" : "h-[0px]"
-                }`}
-              >
-                <ul className="[&>li]:py-1 py-[10%] px-[25%] w-[300px] overflow-hidden">
-                  <li>
-                    <NavLink>Portfolio 1</NavLink>
-                  </li>
-                  <li>
-                    <NavLink>Portfolio 2</NavLink>
-                  </li>
-                  <li>
-                    <NavLink>Portfolio 3</NavLink>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li
-              className={`main-link-hover-effect flex items-center justify-center ${
-                navTag === "Portfolios" ? "after:w-full" : ""
-              }`}
-            >
-              <NavLink
-                className={
-                  "h-full py-2 flex items-center justify-between gap-x-2"
-                }
-                onClick={() => {
-                  setSubMenu(!subMenu);
-                  setNavTag("Portfolios");
-                }}
-              >
-                <span>Portfolios</span>
-                {navTag === "Portfolios" && subMenu ? (
-                  <FaChevronUp />
-                ) : (
-                  <FaChevronDown />
-                )}
-              </NavLink>
-              {/* portfolio sub menu list */}
-              <div
-                className={`absolute top-[100%] left-1/2 -translate-x-1/2 bg-white shadow-lg w-max overflow-hidden transition-all ease-in-out duration-300 ${
-                  navTag === "Portfolios" && subMenu ? "h-[200px]" : "h-[0px]"
-                }`}
-              >
-                <ul className="[&>li]:py-1 py-[10%] px-[25%] w-[300px] overflow-hidden">
-                  <li>
-                    <NavLink
-                      to={"/portfolio"}
-                      onClick={() => {
-                        setSubMenu(false);
-                      }}
-                    >
-                      Portfolio 1
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink>Portfolio 2</NavLink>
-                  </li>
-                  <li>
-                    <NavLink>Portfolio 3</NavLink>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li
-              className={`main-link-hover-effect flex items-center justify-center ${
-                navTag === "Contact Us" ? "after:w-full" : ""
-              }`}
-            >
-              <NavLink
-                to={"/contact"}
-                className={"h-full py-2"}
-                onClick={() => {
-                  setNavTag("Contact Us");
-                  setSubMenu(false);
-                }}
-              >
-                Contact Us
-              </NavLink>
-            </li>
+        {/* nav list */}
+        <div className={`flex-grow absolute left-0 top-[100%] bg-gray-50 sm:bg-white overflow-hidden h-[85vh] sm:relative sm:top-auto z-[150] sm:w-auto sm:h-auto transition-all ease-in-out duration-150 ${false ? 'w-[100vw]' : 'w-[0vw]'}`} id="main-side-nav">
+          <ul className="flex flex-col sm:flex-row pl-[.75%] sm:items-center sm:justify-center gap-x-[3%] [&>li]:py-1 [&>li]:relative">
+            {
+              navList?.map((nav,index)=>(
+                <NavMenuItem key={index} nav={nav}/>
+              ))
+            }
           </ul>
         </div>
-        {/* menu for small screen */}
-        <div
-          className={`absolute left-0 top-[100%] bg-white z-[150] h-[85.3vh] sm:hidden overflow-hidden transition-all ease-in-out duration-300 ${
-            toggleSideNav ? "w-[100vw]" : "w-[0vw]"
-          }`}
-        >
-          <div className="pl-[2%]">
-            <ul className="[&>li]:my-2 [&>li]:relative [&>li]:w-[50%] [&>li]:border-b [&>li]:border-gray-200 [&>li]:py-1">
-              <li>
-                <NavLink
-                  to={"/"}
-                  onClick={() => {
-                    setSmallScreenNav("Home");
-                    setToggleSideNav(false);
-                  }}
-                  className={`${smallScreenNav === "Home" ? "font-bold" : ""}`}
-                >
-                  Home
-                </NavLink>
-              </li>
-
-              <li className="flex flex-col">
-                <NavLink
-                  className={`w-full flex items-center justify-between gap-x-[5%] ${
-                    smallScreenNav === "Our Services" ? "font-bold" : ""
-                  }`}
-                  onClick={() => {
-                    setSmallScreenNav("Our Services");
-                  }}
-                >
-                  <span>Our Services</span>
-                  {smallScreenNav === "Our Services" ? (
-                    <FaChevronUp />
-                  ) : (
-                    <FaChevronDown />
-                  )}
-                </NavLink>
-                <div
-                  className={`ml-[15%] overflow-hidden transition-all ease-in-out duration-300 ${
-                    smallScreenNav === "Our Services" ? "h-[150px]" : "h-[0px]"
-                  }`}
-                >
-                  <ul className="[&>li]:my-1">
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <li>
-                <NavLink
-                  className={`${
-                    smallScreenNav === "Blogging" ? "font-bold" : ""
-                  }`}
-                  onClick={() => {
-                    setSmallScreenNav("Blogging");
-                  }}
-                >
-                  Blogging
-                </NavLink>
-              </li>
-
-              <li className="flex flex-col">
-                <NavLink
-                  className={`w-full flex items-center justify-between gap-x-[5%] ${
-                    smallScreenNav === "Tutorial" ? "font-bold" : ""
-                  }`}
-                  onClick={() => {
-                    setSmallScreenNav("Tutorial");
-                  }}
-                >
-                  <span>Tutorial</span>
-                  {smallScreenNav === "Tutorial" ? (
-                    <FaChevronUp />
-                  ) : (
-                    <FaChevronDown />
-                  )}
-                </NavLink>
-                <div
-                  className={`ml-[15%] overflow-hidden transition-all ease-in-out duration-300 ${
-                    smallScreenNav === "Tutorial" ? "h-[150px]" : "h-[0px]"
-                  }`}
-                >
-                  <ul className="[&>li]:my-1">
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <li className="flex flex-col">
-                <NavLink
-                  className={`w-full flex items-center justify-between gap-x-[5%] ${
-                    smallScreenNav === "Portfolio" ? "font-bold" : ""
-                  }`}
-                  onClick={() => {
-                    setSmallScreenNav("Portfolio");
-                  }}
-                >
-                  <span>Portfolio</span>
-                  {smallScreenNav === "Portfolio" ? (
-                    <FaChevronUp />
-                  ) : (
-                    <FaChevronDown />
-                  )}
-                </NavLink>
-                <div
-                  className={`ml-[15%] overflow-hidden transition-all ease-in-out duration-300 ${
-                    smallScreenNav === "Portfolio" ? "h-[150px]" : "h-[0px]"
-                  }`}
-                >
-                  <ul className="[&>li]:my-1">
-                    <li>
-                      <NavLink
-                        to={"/portfolio"}
-                        onClick={() => {
-                          setToggleSideNav(false);
-                        }}
-                      >
-                        #list
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <li className="flex flex-col">
-                <NavLink
-                  className={`w-full flex items-center justify-between gap-x-[5%] ${
-                    smallScreenNav === "Our Team" ? "font-bold" : ""
-                  }`}
-                  onClick={() => {
-                    setSmallScreenNav("Our Team");
-                  }}
-                >
-                  <span>Our Team</span>
-                  {smallScreenNav === "Our Team" ? (
-                    <FaChevronUp />
-                  ) : (
-                    <FaChevronDown />
-                  )}
-                </NavLink>
-                <div
-                  className={`ml-[15%] overflow-hidden transition-all ease-in-out duration-300 ${
-                    smallScreenNav === "Our Team" ? "h-[150px]" : "h-[0px]"
-                  }`}
-                >
-                  <ul className="[&>li]:my-1">
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                    <li>
-                      <NavLink>#list</NavLink>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-
-              <li>
-                <NavLink
-                  to={"/contact"}
-                  className={`${
-                    smallScreenNav === "Contact Us" ? "font-bold" : ""
-                  }`}
-                  onClick={() => {
-                    setSmallScreenNav("Contact Us");
-                    setToggleSideNav(false);
-                  }}
-                >
-                  Contact Us
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="h-[100%]">
-        {/* menu icon */}
-        <div className=" h-full">
-          <NavLink className="sm:hidden my-2 ">
-            <IoIosHelpCircleOutline className="text-3xl text-gray-700" />
-          </NavLink>
+        {/* right icon */}
+        <div>
+          <button className="sm:hidden">
+            <MdOutlineHelpOutline className="my-1 text-3xl pt-1" />
+          </button>
         </div>
       </div>
     </div>
