@@ -428,7 +428,224 @@ const Home = () => {
         </div>
       </div>
       {/* fifth order container with-blue bg */}
-      <div>
+      <div className="grid grid-cols-3 sm:grid-cols-3  md:grid-cols-6 gap-y-3">
+        <div className="bg-blue-900 flex items-center justify-end text-white p-3">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-end p-3 border-l-4 border-blue-900">
+          <div>
+            <div className="text-lg my-1 font-bold">
+              some text
+            </div>
+            <div>
+              <div className="flex items-center justify-between">
+                <div>start</div>
+                <div>end</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div>12</div>
+                <div>01</div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
         
       </div>
     </div>
