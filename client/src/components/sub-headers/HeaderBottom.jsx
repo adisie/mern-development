@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from "react";
 // icons
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { MdOutlineHelpOutline } from "react-icons/md";
@@ -9,99 +9,103 @@ import NavMenuItem from "./NavMenuItem";
 
 const HeaderBottom = () => {
   // states
-  const [isSideNavOpen,setIsSideNavOpen] = useState(false)
+  const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+   const [isSubMenuOpen, setIsSubMenuOpen] = useState("Home");
   // nav list
   const navList = [
     {
-      navText: 'Home',
-      path: '#'
+      navText: "Home",
+      path: "",
     },
     {
-      navText: 'Our Services',
+      navText: "Our Services",
       subMenus: [
         {
-          subMenuText: 'Service i',
-          path: '#',
+          subMenuText: "Service i",
+          path: "our-service-i",
         },
         {
-          subMenuText: 'Service ii',
-          path: '#',
+          subMenuText: "Service ii",
+          path: "#",
         },
         {
-          subMenuText: 'Service iv',
-          path: '#'
+          subMenuText: "Service iv",
+          path: "#",
         },
       ],
     },
     {
-      navText: 'Blogging',
-      path: '#',
+      navText: "Blogging",
+      path: "blogging",
     },
     {
-      navText: 'Tutorial',
+      navText: "Tutorial",
       subMenus: [
         {
-          subMenuText: 'Tutorial i',
-          path: '#',
+          subMenuText: "Tutorial i",
+          path: "#",
         },
         {
-          subMenuText: 'Tutorial ii',
-          path: '#',
+          subMenuText: "Tutorial ii",
+          path: "#",
         },
         {
-          subMenuText: 'Tutorial iv',
-          path: '#',
+          subMenuText: "Tutorial iv",
+          path: "#",
         },
         {
-          subMenuText: 'Tutorial v',
-          path: '#'
+          subMenuText: "Tutorial v",
+          path: "#",
         },
       ],
     },
     {
-      navText: 'Our Team',
+      navText: "Our Team",
       subMenus: [
         {
-          subMenuText: 'Our Team i',
-          path: '#',
+          subMenuText: "Our Team i",
+          path: "#",
         },
         {
-          subMenuText: 'Our Team ii',
-          path: '#',
+          subMenuText: "Our Team ii",
+          path: "#",
         },
         {
-          subMenuText: 'Our Team iv',
-          path: '#'
-        }
-      ]
+          subMenuText: "Our Team iv",
+          path: "#",
+        },
+      ],
     },
     {
-      navText: 'Contact Us',
-      path: '#',
+      navText: "Contact Us",
+      path: "contact",
     },
-  ]
+  ];
 
   // side nav toggler
   const sideNavToggler = () => {
-    const mainSideNav = document.getElementById('main-side-nav') 
-    if(mainSideNav?.classList.contains('w-[0vw]')){
-      mainSideNav?.classList.remove('w-[0vw]')
-      mainSideNav?.classList.add('w-[100vw]')
-      setIsSideNavOpen(true)
-    }else{
-      mainSideNav?.classList.add('w-[0vw]')
-      mainSideNav?.classList.remove('w-[100vw]')
-      setIsSideNavOpen(false)
+    const mainSideNav = document.getElementById("main-side-nav");
+    if (mainSideNav?.classList.contains("w-[0vw]")) {
+      mainSideNav?.classList.remove("w-[0vw]");
+      mainSideNav?.classList.add("w-[100vw]");
+      setIsSideNavOpen(true);
+    } else {
+      mainSideNav?.classList.add("w-[0vw]");
+      mainSideNav?.classList.remove("w-[100vw]");
+      setIsSideNavOpen(false);
     }
-  }
+  };
   return (
     <div className="w-full flex items-center justify-center">
       <div className="flex-grow px-[.75%] flex items-center justify-between relative">
         {/* menu icon */}
         <div>
-          <button className="sm:hidden" onClick={()=>{
-            sideNavToggler()
-          }}>
+          <button
+            className="sm:hidden"
+            onClick={() => {
+              sideNavToggler();
+            }}
+          >
             {isSideNavOpen ? (
               <AiOutlineClose className="my-1 text-3xl pt-1" />
             ) : (
@@ -110,13 +114,22 @@ const HeaderBottom = () => {
           </button>
         </div>
         {/* nav list */}
-        <div className={`flex-grow absolute left-0 top-[100%] bg-gray-50 sm:bg-white overflow-hidden h-[85vh] sm:relative sm:top-auto z-[150] sm:w-auto sm:h-auto transition-all ease-in-out duration-150 ${false ? 'w-[100vw]' : 'w-[0vw]'}`} id="main-side-nav">
+        <div
+          className={`flex-grow absolute left-0 top-[100%] overflow-hidden sm:overflow-visible bg-gray-50 sm:bg-white h-[85vh] sm:relative sm:top-auto z-[150] sm:w-auto sm:h-auto transition-all ease-in-out duration-150 ${
+            isSideNavOpen ? "w-[100vw]" : "w-[0vw]"
+          }`}
+          id="main-side-nav"
+        >
           <ul className="flex flex-col sm:flex-row pl-[.75%] sm:items-center sm:justify-center gap-x-[3%] [&>li]:py-1 [&>li]:relative">
-            {
-              navList?.map((nav,index)=>(
-                <NavMenuItem key={index} nav={nav}/>
-              ))
-            }
+            {navList?.map((nav, index) => (
+              <NavMenuItem
+                key={index}
+                nav={nav}
+                setIsSideNavOpen={setIsSideNavOpen}
+                isSubMenuOpen={isSubMenuOpen}
+                setIsSubMenuOpen={setIsSubMenuOpen}
+              />
+            ))}
           </ul>
         </div>
         {/* right icon */}
