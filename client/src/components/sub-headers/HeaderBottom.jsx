@@ -115,7 +115,7 @@ const HeaderBottom = () => {
         </div>
         {/* nav list */}
         <div
-          className={`flex-grow absolute left-0 top-[100%] overflow-hidden sm:overflow-visible bg-gray-50 sm:bg-white h-[85vh] sm:relative sm:top-auto z-[150] sm:w-auto sm:h-auto transition-all ease-in-out duration-150 ${
+          className={`flex-grow absolute left-0 top-[100%] overflow-hidden sm:overflow-visible bg-gray-100 sm:bg-white h-[85vh] sm:relative sm:top-auto z-[150] sm:w-auto sm:h-auto transition-all ease-in-out duration-150 ${
             isSideNavOpen ? "w-[100vw]" : "w-[0vw]"
           }`}
           id="main-side-nav"
