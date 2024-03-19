@@ -12,7 +12,7 @@ const HeaderTop = () => {
   const [isPhoneDetailOpen, setIsPhoneDetailOpen] = useState(false);
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
   return (
-    <div className="shadow-bottomShadow p-[.75%] flex items-center justify-between relative">
+    <div className="shadow-bottomShadow p-[.75%] flex items-center justify-between relative mb-1">
       {/* logo */}
 
       <div className="flex-grow">
