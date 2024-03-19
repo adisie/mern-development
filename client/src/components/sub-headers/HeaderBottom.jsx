@@ -60,6 +60,19 @@ const HeaderBottom = () => {
       ],
     },
     {
+      navText: 'Portfolio',
+      subMenus: [
+        {
+          subMenuText: 'Portfolio i',
+          path: '#',
+        },
+        {
+          subMenuText: 'Portfolio ii',
+          path: '#',
+        },
+      ],
+    },
+    {
       navText: "Our Team",
       subMenus: [
         {
@@ -120,7 +133,7 @@ const HeaderBottom = () => {
           }`}
           id="main-side-nav"
         >
-          <ul className="flex flex-col sm:flex-row pl-[.75%] sm:items-center sm:justify-center gap-x-[3%] [&>li]:py-1 [&>li]:relative">
+          <ul className="flex flex-col sm:flex-row pl-[.75%] whitespace-nowrap sm:items-center sm:justify-center gap-x-[1%] [&>li]:py-1 [&>li]:relative">
             {navList?.map((nav, index) => (
               <NavMenuItem
                 key={index}
