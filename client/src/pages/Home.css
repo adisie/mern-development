@@ -1,0 +1,39 @@
+.avatars {
+  --avatar-count: 10;
+  --avatar-size: 32px;
+  --column-size: calc(var(--avatar-size) / 2);
+  display: grid;
+  grid-template-columns: repeat(var(--avatar-count), var(--column-size));
+
+
+  transition: grid-template-columns 500ms;
+  transition-delay: 300ms;
+}
+.avatars:hover,
+.avatars:focus-within {
+  --column-size: calc(var(--avatar-size) * 1.5);
+  cursor: pointer;
+  transition-delay: 0ms;
+}
+
+.avatar {
+  width: var(--avatar-size);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 100vw;
+  border: 2px solid white;
+  box-shadow: 0.15rem 0.15rem 0.15rem rgba(0, 0, 0, 0.349);
+
+  transition: scale 500ms;
+}
+
+.avatar:hover,
+.avatar:focus {
+  scale: 1.75;
+  z-index: 3;
+}
+
+.avatar:hover + .avatar,
+.avatar:has(+ .avatar:hover) {
+  scale: 1.35;
+}

@@ -1,7 +1,12 @@
-import React from "react";
+// pages
+import Card from "./pages/Card";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 };
 
 export default App;
