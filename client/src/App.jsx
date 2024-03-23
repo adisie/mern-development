@@ -1,7 +1,11 @@
-import React from "react";
+
+// pages
+import CustomerDashboard from "./pages/customer/CustomerDashboard";
 
 const App = () => {
-  return <div>App</div>;
+  return <div className="w-screen h-screen">
+    <CustomerDashboard />
+  </div>;
 };
 
 export default App;
