@@ -137,7 +137,7 @@ const CustomerDashboardHomeHeader = () => {
               </div>
               {/* bio */}
               <div>
-                <div className="max-w-[250px] my-3 text-center text-sm text-gray-700 py-2 border-y border-gray-300">
+                <div className="max-w-[250px] my-3 text-center text-sm text-gray-700 py-2 border-y border-gray-200">
                   <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     Inventore unde facere illo animi excepturi
