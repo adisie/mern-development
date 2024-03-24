@@ -17,7 +17,7 @@ import { HiCurrencyDollar } from "react-icons/hi2";
 const CustomerDashboardLeftSideNav = () => {
   // states
   const [nav, setNav] = useState({
-    headerText: null,
+    headerText: "Dashboard",
     subLinkText: null,
     isHeight: false,
   });
@@ -109,7 +109,7 @@ const CustomerDashboardLeftSideNav = () => {
   ];
 
   return (
-    <div className="h-screen bg-gray-50 py-[.75%] px-[1%] min-w-[180px] w-[18%] flex flex-col">
+    <div className="h-screen bg-gray-50 py-[.75%] px-[1%] min-w-[200px] w-[18%] flex flex-col">
       {/* header */}
       <header>
         <div className="w-full flex h-[5vh] items-center justify-end">
@@ -129,83 +129,112 @@ const CustomerDashboardLeftSideNav = () => {
         </div>
       </header>
       {/* nav */}
-      <div className="flex-grow pr-[5%]">
+      <div className="flex-grow pr-[5%] max-h-[50vh] my-2 overflow-hidden overflow-y-scroll" id="dashboard-nav-link-container">
         <ul className="">
           {mainNavList?.map((mainNav, index) => (
-            <li key={index} className="my-[.35rem]">
-              <NavLink className="pl-1 flex items-center gap-x-[3%]">
-                <mainNav.icon />
-                <span>{mainNav.navHeaderText}</span>
-              </NavLink>
+            <li key={index} className="my-[.75rem]">
+              {!mainNav?.subNavLinks ? (
+                <NavLink
+                  className="pl-1 flex items-center gap-x-[3%]"
+                  onClick={() => {
+                    console.log(mainNav.navHeaderText);
+                    setNav((prev) => {
+                      return {
+                        ...prev,
+                        headerText: mainNav.navHeaderText,
+                        isHeight: !prev.isHeight,
+                      };
+                    });
+                  }}
+                >
+                  <mainNav.icon
+                    className={`${
+                      nav.headerText === mainNav.navHeaderText
+                        ? "text-orange-400"
+                        : "text-gray-700"
+                    } text-xl`}
+                  />
+                  <span className={`${nav.headerText === mainNav.navHeaderText ? 'font-semibold' : ''}`}>{mainNav.navHeaderText}</span>
+                </NavLink>
+              ) : (
+                <NavLink
+                  className={`pl-1 flex items-center justify-between gap-x-[3%] transition-all ease-in-out duration-300 ${
+                    nav.headerText === mainNav.navHeaderText
+                      ? nav.subLinkText
+                        ? "border-l border-orange-400"
+                        : "border-l-4 border-orange-400"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    setNav((prev) => {
+                      return {
+                        ...prev,
+                        headerText: mainNav.navHeaderText,
+                        subLinkText: prev.headerText === mainNav.navHeaderText ? prev.subLinkText : null,
+                        isHeight: prev.headerText === mainNav.navHeaderText ? !prev.isHeight : true,
+                      };
+                    });
+                  }}
+                >
+                  <div className="flex items-center gap-x-[3%] flex-grow">
+                    <mainNav.icon
+                      className={`${
+                        nav.headerText === mainNav.navHeaderText
+                          ? "text-orange-400"
+                          : "text-gray-700"
+                      } text-xl`}
+                    />
+                    <span className={`${nav.headerText === mainNav.navHeaderText ? 'font-semibold' : ''}`}>{mainNav.navHeaderText}</span>
+                  </div>
+                  {nav.headerText === mainNav.navHeaderText && nav.isHeight ? (
+                    <MdKeyboardArrowUp
+                      className={`text-lg ${
+                        nav.headerText === mainNav.navHeaderText
+                          ? "text-orange-400"
+                          : ""
+                      }`}
+                    />
+                  ) : (
+                    <MdKeyboardArrowDown
+                      className={`text-lg ${
+                        nav.headerText === mainNav.navHeaderText
+                          ? "text-orange-400"
+                          : ""
+                      }`}
+                    />
+                  )}
+                </NavLink>
+              )}
               {mainNav.subNavLinks ? (
                 <div
                   className={`bg-gray-50 w-full overflow-hidden transition-all ease-in-out duration-300 ${
-                    nav.headerText === "My Chart" && nav.isHeight
+                    nav.headerText === mainNav.navHeaderText && nav.isHeight
                       ? "max-h-[150px]"
                       : "max-h-0"
                   }`}
                 >
                   <ul>
-                    <li className="flex items-center">
-                      <NavLink
-                        className={`${
-                          nav.subLinkText === "Ethiopia"
-                            ? "border-l-4"
-                            : "border-l"
-                        } transition-all ease-in-out duration-300 border-orange-400 w-full pl-[25%]`}
-                        onClick={() => {
-                          console.log("Ethiopia");
-                          setNav((prev) => {
-                            return {
-                              ...prev,
-                              subLinkText: "Ethiopia",
-                            };
-                          });
-                        }}
-                      >
-                        Ethiopia
-                      </NavLink>
-                    </li>
-                    <li className="flex items-center">
-                      <NavLink
-                        className={`${
-                          nav.subLinkText === "Russia"
-                            ? "border-l-4"
-                            : "border-l"
-                        } transition-all ease-in-out duration-300 border-orange-400 w-full pl-[25%]`}
-                        onClick={() => {
-                          console.log("Russia");
-                          setNav((prev) => {
-                            return {
-                              ...prev,
-                              subLinkText: "Russia",
-                            };
-                          });
-                        }}
-                      >
-                        Russia
-                      </NavLink>
-                    </li>
-                    <li className="flex items-center">
-                      <NavLink
-                        className={`${
-                          nav.subLinkText === "China"
-                            ? "border-l-4"
-                            : "border-l"
-                        } transition-all ease-in-out duration-300 border-orange-400 w-full pl-[25%]`}
-                        onClick={() => {
-                          console.log("China");
-                          setNav((prev) => {
-                            return {
-                              ...prev,
-                              subLinkText: "China",
-                            };
-                          });
-                        }}
-                      >
-                        China
-                      </NavLink>
-                    </li>
+                    {mainNav.subNavLinks.map((subNav, index) => (
+                      <li key={index} className="flex items-center">
+                        <NavLink
+                          className={`${
+                            nav.subLinkText === subNav.subNavLinkHeaderText
+                              ? "border-l-4"
+                              : "border-l"
+                          } transition-all ease-in-out duration-300 border-orange-400 w-full pl-[15%] pt-[.3rem]`}
+                          onClick={() => {
+                            setNav((prev) => {
+                              return {
+                                ...prev,
+                                subLinkText: subNav.subNavLinkHeaderText,
+                              };
+                            });
+                          }}
+                        >
+                          {subNav.subNavLinkHeaderText}
+                        </NavLink>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               ) : (
@@ -213,7 +242,8 @@ const CustomerDashboardLeftSideNav = () => {
               )}
             </li>
           ))}
-          <li className="my-[.25rem]">
+
+          {/* <li className="my-[.25rem]">
             <NavLink
               className="pl-1 flex items-center gap-x-[3%]"
               onClick={() => {
@@ -233,8 +263,8 @@ const CustomerDashboardLeftSideNav = () => {
               />
               <span>Dashboard</span>
             </NavLink>
-          </li>
-          <li className="my-[.25rem]">
+          </li> */}
+          {/* <li className="my-[.25rem]">
             <NavLink
               className={`pl-1 flex items-center justify-between gap-x-[3%] transition-all ease-in-out duration-300 ${
                 nav.headerText === "My Chart"
@@ -339,10 +369,7 @@ const CustomerDashboardLeftSideNav = () => {
                 </li>
               </ul>
             </div>
-          </li>
-          <li>
-            <NavLink>Services</NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
       <footer>
