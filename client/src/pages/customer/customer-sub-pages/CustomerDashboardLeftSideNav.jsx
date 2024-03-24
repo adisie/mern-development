@@ -109,7 +109,7 @@ const CustomerDashboardLeftSideNav = () => {
   ];
 
   return (
-    <div className="h-screen bg-gray-50 py-[.75%] px-[1%] min-w-[200px] w-[18%] flex flex-col">
+    <div className="h-screen bg-gray-50 py-[.75%] px-[1%] min-w-[220px] w-[18%] flex flex-col">
       {/* header */}
       <header>
         <div className="w-full flex h-[5vh] items-center justify-end">

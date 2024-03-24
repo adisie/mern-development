@@ -22,6 +22,18 @@ const CustomerDashboardHomeHeader = () => {
   // local states
   const [dropdown, setDropdown] = useState(false);
 
+  // right side bar toggler
+  const rightSideBarToggler = () => {
+    let rightSideBar = document.getElementById('customer-dashboard-right-side-bar') 
+    if(rightSideBar?.classList.contains('right-[-100vw]')){
+      rightSideBar?.classList.remove('right-[-100vw]')
+      rightSideBar?.classList.add('right-0')
+    }else{
+      rightSideBar?.classList.add('right-[-100vw]')
+      rightSideBar?.classList.remove('right-0')
+    }
+  }
+
   return (
     <header className="py-2 flex items-center justify-between  shadow-headerBottomShadow">
       <div className="flex items-center gap-[5%] pl-[1%] w-[70%]">
@@ -155,8 +167,10 @@ const CustomerDashboardHomeHeader = () => {
           </div>
         </div>
         {/* icon */}
-        <div>
-          <BiDotsVerticalRounded className="text-xl text-gray-500 cursor-pointer transition-all ease-in-out duration-300 hover:text-gray-700" />
+        <div className="flex xl:hidden">
+          <BiDotsVerticalRounded className="text-xl text-gray-500 cursor-pointer transition-all ease-in-out duration-300 hover:text-gray-700" onClick={()=>{
+            rightSideBarToggler()
+          }}/>
         </div>
       </div>
     </header>
