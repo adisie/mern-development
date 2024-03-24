@@ -121,8 +121,8 @@ const CustomerDashboardLeftSideNav = () => {
         <div className="flex items-center justify-center">
           <div className="w-[64px] aspect-square overflow-hidden">
             <img
-              className="h-full object-cover aspect-square"
-              src="./public/images/site-logo/final-logo.png"
+              className="h-full object-cover aspect-square cursor-pointer"
+              src="/public/images/site-logo/final-logo.png"
               alt=""
             />
           </div>
@@ -137,7 +137,6 @@ const CustomerDashboardLeftSideNav = () => {
                 <NavLink
                   className="pl-1 flex items-center gap-x-[3%]"
                   onClick={() => {
-                    console.log(mainNav.navHeaderText);
                     setNav((prev) => {
                       return {
                         ...prev,
@@ -150,7 +149,7 @@ const CustomerDashboardLeftSideNav = () => {
                   <mainNav.icon
                     className={`${
                       nav.headerText === mainNav.navHeaderText
-                        ? "text-orange-400"
+                        ? "text-yellow-600"
                         : "text-gray-700"
                     } text-xl`}
                   />
@@ -161,8 +160,8 @@ const CustomerDashboardLeftSideNav = () => {
                   className={`pl-1 flex items-center justify-between gap-x-[3%] transition-all ease-in-out duration-300 ${
                     nav.headerText === mainNav.navHeaderText
                       ? nav.subLinkText
-                        ? "border-l border-orange-400"
-                        : "border-l-4 border-orange-400"
+                        ? "border-l border-yellow-600"
+                        : "border-l-4 border-yellow-600"
                       : ""
                   }`}
                   onClick={() => {
@@ -180,7 +179,7 @@ const CustomerDashboardLeftSideNav = () => {
                     <mainNav.icon
                       className={`${
                         nav.headerText === mainNav.navHeaderText
-                          ? "text-orange-400"
+                          ? "text-yellow-600"
                           : "text-gray-700"
                       } text-xl`}
                     />
@@ -190,7 +189,7 @@ const CustomerDashboardLeftSideNav = () => {
                     <MdKeyboardArrowUp
                       className={`text-lg ${
                         nav.headerText === mainNav.navHeaderText
-                          ? "text-orange-400"
+                          ? "text-yellow-600"
                           : ""
                       }`}
                     />
@@ -198,7 +197,7 @@ const CustomerDashboardLeftSideNav = () => {
                     <MdKeyboardArrowDown
                       className={`text-lg ${
                         nav.headerText === mainNav.navHeaderText
-                          ? "text-orange-400"
+                          ? "text-yellow-600"
                           : ""
                       }`}
                     />
@@ -221,7 +220,7 @@ const CustomerDashboardLeftSideNav = () => {
                             nav.subLinkText === subNav.subNavLinkHeaderText
                               ? "border-l-4"
                               : "border-l"
-                          } transition-all ease-in-out duration-300 border-orange-400 w-full pl-[15%] pt-[.3rem]`}
+                          } transition-all ease-in-out duration-300 border-yellow-600 w-full pl-[20%] pt-[.3rem]`}
                           onClick={() => {
                             setNav((prev) => {
                               return {
