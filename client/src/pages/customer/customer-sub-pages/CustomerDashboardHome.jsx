@@ -5,7 +5,7 @@ import CustomerDashboardRightSideBar from "./customer-home-sub-pages/CustomerDas
 
 const CustomerDashboardHome = () => {
   return (
-    <div className="flex-grow flex flex-col overflow-hidden">
+    <div className="flex-grow flex flex-col overflow-hidden relative pt-[8vh] h-screen overflow-y-auto">
       <CustomerDashboardHomeHeader />
       <div className="flex-grow flex relative">
         <Outlet />

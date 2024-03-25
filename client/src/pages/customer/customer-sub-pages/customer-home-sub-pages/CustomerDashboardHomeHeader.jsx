@@ -35,7 +35,7 @@ const CustomerDashboardHomeHeader = () => {
   }
 
   return (
-    <header className="py-2 flex items-center justify-between  shadow-headerBottomShadow">
+    <header className="py-2 flex items-center justify-between  shadow-headerBottomShadow absolute top-0 left-0 w-full z-[100]">
       <div className="flex items-center gap-[5%] pl-[1%] w-[70%]">
         {/* icon */}
         <div className="cursor-pointer">
