@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
 // pages
+// main pages
+import Home from "./pages/main-pages/Home";
 // customer dashboard pages
 import CustomerDashboard from "./pages/customer/CustomerDashboard";
 import CustomerDashboardIndex from "./pages/customer/customer-sub-pages/customer-home-sub-pages/customer-dashboard-index/CustomerDashboardIndex";
@@ -9,8 +11,9 @@ import CustomerDashboardHome from "./pages/customer/customer-sub-pages/CustomerD
 
 const App = () => {
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen font-workSans">
       <Routes>
+        <Route path="/" element={<Home />}></Route>
         <Route path="dashboard/customer/" element={<CustomerDashboard />}>
           <Route
             path="/dashboard/customer/"
