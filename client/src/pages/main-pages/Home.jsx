@@ -3,18 +3,19 @@ import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
 import { SiPostman } from "react-icons/si";
 import { VscVerifiedFilled } from "react-icons/vsc";
 
+// components
+import Header from "../../components/Header";
+
 // main
 const Home = () => {
   return (
-    <div className="w-screen h-screen">
-      <header className="w-full h-[10vh] shadow-headerBottomShadow">
-        Header
-      </header>
+    <div className="w-screen h-screen pt-[9vh]">
+      <Header />
       {/* first order container */}
       <div className="w-full px-[3%] bg-gradient-to-r from-gray-50 to-orange-100 pb-12">
-        <div className="w-full h-full py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between">
+        <div className="w-full h-full sm:py-[1%] flex flex-col-reverse sm:flex-row sm:items-end justify-between">
           {/* top left */}
-          <div className="w-full sm:w-[50%]">
+          <div className="w-full mt-14 sm:w-[50%]">
             {/* first button */}
             <div>
               <button className="px-[5%] py-1 border border-sky-100 bg-sky-50 rounded-full">
@@ -23,7 +24,7 @@ const Home = () => {
             </div>
             {/* bold paragraph */}
             <div>
-              <p className="text-2xl font-semibold my-[1%] text-gray-500">
+              <p className="text-2xl font-semibold my-[1%] text-gray-700">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
                 et atque quibusdam.
               </p>
@@ -115,7 +116,7 @@ const Home = () => {
               {/* background image */}
               <div className="relative z-10 w-full h-full after:absolute after:left-1/2 after:-translate-x-1/2  after:top-1/2 after:-translate-y-1/2 after:rounded-l-[15%] after:w-[50%]  after:h-[50%] after:bg-emerald-400 after:z-0">
                 <img
-                  className="relative z-20 h-[350px] w-full object-contain"
+                  className="relative z-20 ml-[72px] sm:ml-auto sm:h-[350px] w-full object-contain"
                   src="/images/personnels/customer-i-removebg-preview.png"
                   alt=""
                 />
@@ -123,9 +124,9 @@ const Home = () => {
               {/* content here */}
               <div className="absolute left-0 bottom-0 w-full h-full z-50 bg-transparent flex flex-col">
                 {/* first container */}
-                <div className="h-full w-full flex items-center sm:items-end rotate-[90deg] sm:rotate-0 justify-end">
+                <div className="h-full w-full flex items-center sm:items-end  justify-end">
                   <div className="mb-5">
-                    <div className="flex items-start gap-3">
+                    <div className="flex items-start gap-3 ">
                       <div className="flex items-center gap-3 py-1 px-5 rounded-sm bg-yellow-400 shadow-lg">
                         <SiPostman className="text-xl text-emerald-400" />
                         <p>Lorem ipsum dolor </p>
